@@ -29,7 +29,9 @@ export const renderExperience = () => {
           article.innerHTML = `
                <p>${data.title}</p>
                <p>${data.startYear} - ${data.endYear}</p>
-               <p>${data.points}</p>
+               <ul class="experience-points">
+                    ${data.points.map(point => `<li>${point}</li>`).join('')}
+               </ul>
           `
           // Agrego el artículo al contenedor de experiencia
           experienceContainer.appendChild(article);

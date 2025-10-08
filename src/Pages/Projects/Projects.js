@@ -27,14 +27,22 @@ export const renderProjects = () => {
                     <img src="${project.image}" alt="${project.title}"/>
                     <div class="content">
                         <h2>${project.title}</h2>
-                        <p>${project.tech.join(" - ")}</p>
-
+                        <p class="project-description">${project.description || ''}</p>
+                        <div class="tech-stack">
+                            ${project.tech.map(tech => `
+                                <span class="tech-item">${tech}</span>
+                            `).join('')}
+                        </div>
+                        <div class="project-links">
                             <a href="${project.link}" target='_blank'>
-                                <img src="/assets/enlace.png" alt="icono enlace"/>
+                                <img src="/assets/enlace.png" alt="Ver demo"/>
+                                <span>Demo</span>
                             </a>
                             <a href="${project.github}" target='_blank'>
-                                <img src="/assets/iconoGitHub.svg" alt="icono GitHub"/>
+                                <img src="/assets/iconoGitHub.svg" alt="Ver código"/>
+                                <span>Código</span>
                             </a>
+                        </div>
                     </div>
         `;
         // Agrego el elemento li a la lista de proyectos

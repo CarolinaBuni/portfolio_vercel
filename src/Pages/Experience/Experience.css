@@ -11,22 +11,50 @@
 }
 
 .experience-container {
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-	gap: 68px;
-	justify-content: center;
-	margin-top: var(--margin-s);
-	text-align: center;
-	width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: var(--margin-m);
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
 }
-/* Estilos para los artículos de Experiencia */
+
 .experience-container > article {
-	align-items: center;
-	color: var(--primary-text-color);
-	display: flex;
-	flex-direction: column;
-	width: 50%;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    color: var(--primary-text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.experience-container > article::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(123, 97, 255, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.experience-container > article:hover {
+    transform: translateY(-5px);
+    border-color: rgba(123, 97, 255, 0.3);
+}
+
+.experience-container > article:hover::before {
+    opacity: 1;
 }
 /* Estilos para el texto del título de Experiencia */
 .experience > div > p {
@@ -40,21 +68,60 @@
 }
 
 /* Estilos para el primer párrafo de los artículos de Experiencia */
-#experience
-	> div.experience-container
-	> article
-	> p:first-of-type {
-	font-family: "Bebas Neue";
-	font-size: 40px;
-	font-weight: var(--font-weight-s);
-	text-shadow: 0px 0px 4px var(--text-shadow-color);
+.experience-container > article > p:first-of-type {
+    font-family: "Bebas Neue";
+    font-size: 32px;
+    font-weight: var(--font-weight-s);
+    margin-bottom: 10px;
+    color: var(--secondary-text-color);
+    text-shadow: 0px 0px 10px rgba(123, 97, 255, 0.5);
 }
-/* Estilos para los párrafos de los artículos de Experiencia */
-#experience > div.experience-container > article > p {
-	font-family: "Bebas Neue";
-	font-size: var(--font-size-m);
-	text-shadow: 0px 0px 4px var(--text-shadow-color);
+
+.experience-container > article > p:nth-of-type(2) {
+    font-family: "Bebas Neue";
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+    padding: 5px 15px;
+    background: rgba(123, 97, 255, 0.2);
+    border-radius: 20px;
+    align-self: flex-start;
 }
+
+.experience-container > article > p:last-of-type {
+    font-family: "Bebas Neue";
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--primary-text-color);
+    opacity: 0.9;
+}
+.experience-points {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.experience-points li {
+    font-family: "Bebas Neue";
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--primary-text-color);
+    opacity: 0.9;
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.experience-points li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--secondary-text-color);
+    font-size: 20px;
+    line-height: 1;
+}
+
 /* Media queries para dispositivos con ancho de pantalla máximo de 1440px */
 @media screen and (max-width: 1440px) {
 	#experience {

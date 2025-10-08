@@ -11,20 +11,39 @@
 }
 /* Estilos para el contenido de la sección de contacto */
 .contact-content {
-	display: flex;
-	justify-content: center;
-	margin-top: var(--margin-ss);
-	width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: var(--margin-m);
+    width: 100%;
+    padding: 0 20px;
 }
 
 #contactForm {
-	width: 50%;
+    width: 50%;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid rgba(123, 97, 255, 0.2);
+    backdrop-filter: blur(10px);
 }
 
 .form-group > input,
 textarea {
-	background-color: #3348c6e0;
-	border: none;
+    background: rgba(123, 97, 255, 0.1);
+    border: 1px solid rgba(123, 97, 255, 0.2);
+    border-radius: 8px;
+    padding: 12px;
+    color: var(--primary-text-color);
+    font-family: "Bebas Neue";
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.form-group > input:focus,
+textarea:focus {
+    outline: none;
+    border-color: rgba(123, 97, 255, 0.5);
+    box-shadow: 0 0 15px rgba(123, 97, 255, 0.3);
 }
 
 #contact > div > p {
@@ -43,34 +62,89 @@ textarea {
 	margin-bottom: var(--margin-l);
 }
 
+.form-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
 .form-group > label {
-	color: var(--primary-text-color);
-	font-family: "Bebas Neue";
-	font-size: 38px;
-	margin-right: var(--margin-xm);
-	white-space: nowrap;
-	width: 150px;
+    color: var(--secondary-text-color);
+    font-family: "Bebas Neue";
+    font-size: 24px;
+    position: absolute;
+    left: 12px;
+    top: -12px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 0 8px;
+    border-radius: 4px;
 }
 
 .form-group input,
 .form-group textarea {
-	flex: 1;
+    width: 100%;
+    resize: none;
 }
 
 .form-group > textarea {
-	height: 24vh;
+    height: 150px;
+    line-height: 1.5;
 }
 /* Estilos para el texto de marcador de posición */
 input::placeholder,
 textarea::placeholder {
-	color: var(--placeholder-color);
-	font-family: "Bebas Neue";
-	font-size: var(--font-size-m);
-	padding-left: var(--padding-s);
+    color: rgba(255, 255, 255, 0.5);
+    font-family: "Bebas Neue";
+    font-size: 16px;
 }
 
-textarea::placeholder {
-	padding-top: 10px;
+/* Estilos para el botón */
+#rocketButton {
+    background: rgba(123, 97, 255, 0.2);
+    border: 1px solid rgba(123, 97, 255, 0.3);
+    border-radius: 25px;
+    padding: 12px 30px;
+    color: rgb(123, 97, 255);
+    font-family: "Bebas Neue";
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+    transition: all 0.3s ease;
+}
+
+#rocketButton:hover {
+    background: rgba(123, 97, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+#rocketButton svg {
+    width: 20px;
+    height: 20px;
+    fill: rgb(123, 97, 255);
+}
+
+.done {
+    display: none;
+}
+
+#rocketButton.sent {
+    background: rgba(76, 175, 80, 0.2);
+    border-color: rgba(76, 175, 80, 0.3);
+    color: rgb(76, 175, 80);
+}
+
+#rocketButton.sent svg {
+    fill: rgb(76, 175, 80);
+}
+
+#rocketButton.sent .send {
+    display: none;
+}
+
+#rocketButton.sent .done {
+    display: block;
 }
 /* Media query para pantallas con un ancho máximo de 768px */
 @media screen and (max-width: 768px) {

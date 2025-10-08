@@ -7,6 +7,7 @@ export const setupFormAnimation = () => {
 	const rocketSvg = document.getElementById("rocketSvg");
 	const sendText = document.querySelector(".send");
 	const doneText = document.querySelector(".done");
+	const button = document.getElementById("rocketButton");
 
 	// Define la animación GSAP para el botón
 	let t1 = gsap
@@ -55,10 +56,14 @@ export const setupFormAnimation = () => {
 		if (this.checkValidity()) {
 			t1.restart(); // Reproduce la animación
 			t1.eventCallback("onComplete", () => {
-				form.reset(); // Limpia el formulario después de la animación
-				console.log(
-					'Formulario "enviado" y datos eliminados'
-				);
+				form.reset();
+				button.disabled = false;
+				button.classList.remove('sent');
+				sendText.style.opacity = 1;
+				doneText.style.opacity = 0;
+				rocketSvg.style.opacity = 1;
+				rocketSvg.style.transform = 'translateY(-50%)';
+				console.log('Formulario "enviado" y datos eliminados');
 			});
 		} else {
 			this.reportValidity(); // Muestra los mensajes de error predeterminados del navegador
